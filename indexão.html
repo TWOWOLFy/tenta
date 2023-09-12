@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: red; /* Adicione esta linha para definir o fundo vermelho */
+  }
+
+  .button-container {
+    display: flex;
+    gap: 20px;
+  }
+
+  .move-button, .static-button {
+    width: 100px;
+    height: 50px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+</style>
+</head>
+<body>
+  <h1>Cu Hoje?</h1>
+  <div class="button-container">
+    <a href="https://www.youtube.com/watch?v=izGwDsrQ1eQ" target="_blank" class="static-button">Sim</a>
+    <button class="move-button">Não</button>   
+  </div>
+
+  <script>
+    const moveButton = document.querySelector('.move-button');
+
+    function moveButtonRandom() {
+      const maxX = window.innerWidth - moveButton.offsetWidth;
+      const maxY = window.innerHeight - moveButton.offsetHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      moveButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
+
+    moveButton.addEventListener('click', moveButtonRandom);
+  </script>
+</body>
+</html>
